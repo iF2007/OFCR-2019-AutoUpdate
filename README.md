@@ -11,6 +11,7 @@
 ## Step 4: Modify path as shown below  
 ![image](https://i.ibb.co/FDBWxNr/TIM-20181225112244.png)  
 ## Step 5: Wait for the download to complete  
+It may take longer to download whole repo initialially. Afterwards only changes files will be downloaded.  
 ## Step 6: When updating, simply click 'fetch', then wait until 'pull' is available, then select 'pull' 
 ![image](https://i.ibb.co/jvZkNXY/TIM-20181225112315.png)  
 ![image](https://i.ibb.co/M8N2QbK/TIM-20181225112327.png)  
