@@ -1,0 +1,51 @@
+/
+// The first section defines what maps to load for the new vehicle skinning
+// technology.  The first line defines a "prefix" to be used for all generic maps.
+// Currently, generic maps are used for the livery, wing, driver, driver arms,
+// driver helmet, and pit crew.  The second line will replace the default livery
+// with the new specified, for the track specified.  The format is as follows:
+//
+// DefaultLivery="PREFIX"       // PREFIX is the base texture map name, assumed to be BMP unless specified
+// PitCrewLivery="PREFIX"       // This is only needed if it differs from the default livery PREFIX
+// TrackLivery="TRACK, PREFIX"  // TRACK is the track name as defined in the event GDB
+// TrackLivery="TRACK, PREFIX"  // For example, "2004_Toban"
+// TrackLivery="TRACK, PREFIX"  // You can have an infinite # of these lines
+//
+
+DefaultLivery="FBT_34/FBT_34.DDS"
+
+HDVehicle=OFCR2019.hdv          
+Graphics=OFCR.gen
+Spinner=OFCR_Spinner.gen          
+GenString=                          // Used to generate GMT names in *.gen file
+Cameras=FBT_cams.cam               // Defaults to cams.cfg in UserData directory
+Sounds=OFCR_2019_Audi.sfx
+HeadPhysics=HeadPhysics.ini         // Affects driver eyepoint only
+Cockpit=FBT_cockpitinfo.ini
+Upgrades=FBT_Upgrades.ini
+
+BaseVehiclePrice=0
+UnlockExperience=0
+
+
+//////////////////////////TEAM HISTORY AND INFORMATION///////////////////////////////////////////
+
+
+Number=34
+Team="Team FlyingBird"
+PitGroup="Group1"
+Driver="FBT_Reserve"
+Description="#4 - 34. Reserve"
+Engine="Renault"
+Manufacturer="Renaut"
+Classes="OFCR_2019"
+
+FullTeamName="Audi Sport - Team FlyingBird"
+TeamFounded=2005
+TeamHeadquarters="Milton Keynes - England"
+TeamStarts=0
+TeamPoles=0
+TeamWins=0
+TeamWorldChampionships=1
+
+Category="OFCR Season2019"

@@ -1,0 +1,337 @@
+
+// This file specifices how to generate the vehicle graphics.
+// It is pointed to by one or more *.veh files.
+// GENERATE BY SOMPIR
+
+
+//----------------------------------------
+
+SearchPath=<VEHDIR>
+SearchPath=<TEAMDIR>
+MASFile=2012\TEAMS\F1RFTCOMM.mas
+MASFile=2012\TEAMS\TIRES.mas
+MASFile=cmaps.mas
+MASFile=TEAM.mas
+
+
+ReflectPlane=(0.0, -1.0, 0.0, 0.0)
+
+
+//----------------------------------------
+
+Instance=SLOT<ID>
+{
+  Moveable=True
+   //------------------------------------MAX CAR SETTINGS---------------------------------------------
+<MAX> MeshFile=RENAULT_A.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(6.0) ShadowReceiver=True
+<MAX> MeshFile=RENAULT_C.gmt CollTarget=False HATTarget=False LODIn=(6.0) LODOut=(11.0) ShadowReceiver=True
+<MAX> MeshFile=RENAULT_D.gmt CollTarget=False HATTarget=False LODIn=(11.0) LODOut=(100.0) 
+<MAX> MeshFile=RENAULT_D.gmt CollTarget=False HATTarget=False LODIn=(100.0) LODOut=(550.0) 
+<MAX> MeshFile=Form_shad.gmt CollTarget=False HATTarget=False ShadowObject=(True, Solid, 256, 256, fis_undershadow.tga) LODIn=(0.0) LODOut=(250.0)
+//------------------------------------HIGH CAR SETTINGS--------------------------------------------
+<HIGH> MeshFile=RENAULT_A.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(5.0) ShadowReceiver=True
+<HIGH> MeshFile=RENAULT_C.gmt CollTarget=False HATTarget=False LODIn=(5.0) LODOut=(9.0) ShadowReceiver=True
+<HIGH> MeshFile=RENAULT_D.gmt CollTarget=False HATTarget=False LODIn=(9.0) LODOut=(100.0) 
+<HIGH> MeshFile=RENAULT_D.gmt CollTarget=False HATTarget=False LODIn=(100.0) LODOut=(400.0) 
+<HIGH> MeshFile=Form_shad.gmt CollTarget=False HATTarget=False ShadowObject=(True, Solid, 256, 256, fis_undershadow.tga) LODIn=(0.0) LODOut=(200.0)
+//------------------------------------MED CAR SETTINGS---------------------------------------------
+<MED> MeshFile=RENAULT_A.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(5.0) ShadowReceiver=True
+<MED> MeshFile=RENAULT_C.gmt CollTarget=False HATTarget=False LODIn=(5.0) LODOut=(8.0) ShadowReceiver=True
+<MED> MeshFile=RENAULT_D.gmt CollTarget=False HATTarget=False LODIn=(8.0) LODOut=(100.0) 
+<MED> MeshFile=RENAULT_D.gmt CollTarget=False HATTarget=False LODIn=(100.0) LODOut=(300.0) 
+<MED> MeshFile=Form_shad.gmt CollTarget=False HATTarget=False ShadowObject=(True, Solid, 256, 256, fis_undershadow.tga) LODIn=(0.0) LODOut=(150.0)
+//------------------------------------LOW CAR SETTINGS---------------------------------------------
+<LOW> MeshFile=RENAULT_B.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(20.0) ShadowReceiver=True
+<LOW> MeshFile=RENAULT_C.gmt CollTarget=False HATTarget=False LODIn=(20.0) LODOut=(100.0) 
+<LOW> MeshFile=RENAULT_D.gmt CollTarget=False HATTarget=False LODIn=(100.0) LODOut=(250.0) 
+<LOW> MeshFile=Form_shad.gmt CollTarget=False HATTarget=False ShadowObject=(True, Solid, 128, 128, fis_undershadow.tga) LODIn=(0.0) LODOut=(80.0)
+//------------------------------------SHADOW AND COLLISION OBJECTS---------------------------------
+
+   MeshFile=Form_col.gmt Render=False CollTarget=True HATTarget=False LODIn=(0.0) LODOut=(140.0)
+  <WETLIGTH> MeshFile=rainw.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(65.0)
+
+
+
+  Actor=VEHICLE
+
+Instance=COCKPIT
+{
+  Moveable=True
+  MeshFile=RENcockpit.GMT CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(1.5) ShadowReceiver=True
+    MeshFile=RENpilota.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(2.0) ShadowReceiver=True
+  }
+
+
+////////////////////////////////////KORM�NY/////////////////
+  Instance=wheel
+  {
+    Moveable=True
+  <ARMSEXISTS>MeshFile=<ARMSA> CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(2.0) ShadowReceiver=True
+  <ARMSEXISTS>MeshFile=<ARMSB> CollTarget=False HATTarget=False LODIn=(2.0) LODOut=(6.0) ShadowReceiver=True
+  <ARMSEXISTS>MeshFile=<ARMSC> CollTarget=False HATTarget=False LODIn=(6.0) LODOut=(30.0) ShadowReceiver=True
+  <NOARMSEXISTS>MeshFile=<NOARMSA> CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(2.0) ShadowReceiver=True
+  <NOARMSEXISTS>MeshFile=<NOARMSB> CollTarget=False HATTarget=False LODIn=(2.0) LODOut=(6.0) ShadowReceiver=True
+  <NOARMSEXISTS>MeshFile=<NOARMSC> CollTarget=False HATTarget=False LODIn=(6.0) LODOut=(30.0) ShadowReceiver=True
+  }
+
+////////////////////////////DRS//////////////////////////////////
+
+
+  Instance=HlightDS   
+  {
+    Moveable=True
+  MeshFile=hlglo_DS.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(350.0) ShadowReceiver=True 
+  }
+
+  Instance=HlightPS  
+  {
+    Moveable=True
+   MeshFile=hlglo_ps.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(350.0) ShadowReceiver=True 
+  }
+
+////////////////////////////////////ELS� SZ�RNY/////////////////
+Instance=Fwing
+  {
+    Moveable=True
+	//------------------------------------MAX CAR SETTINGS---------------------------------------------
+  <MAX>  MeshFile=E_SZARNY_A.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(5.0) ShadowReceiver=True
+  <MAX>  MeshFile=E_SZARNY_B.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(5.0) LODOut=(10.0) ShadowReceiver=True
+  <MAX>  MeshFile=E_SZARNY_C.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(10.0) LODOut=(50.0) ShadowReceiver=True
+  <MAX>  MeshFile=E_SZARNY_D.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(50.0) LODOut=(550.0) ShadowReceiver=True
+  
+  //------------------------------------HIGH CAR SETTINGS--------------------------------------------
+  <HIGH>  MeshFile=E_SZARNY_A.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(5.0) ShadowReceiver=True
+  <HIGH>  MeshFile=E_SZARNY_B.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(5.0) LODOut=(9.0) ShadowReceiver=True
+  <HIGH>  MeshFile=E_SZARNY_C.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(9.0) LODOut=(40.0) ShadowReceiver=True
+  <HIGH>  MeshFile=E_SZARNY_D.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(40.0) LODOut=(350.0) ShadowReceiver=True
+  //------------------------------------MED CAR SETTINGS---------------------------------------------
+  <MED>  MeshFile=E_SZARNY_A.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(4.0) ShadowReceiver=True
+  <MED>  MeshFile=E_SZARNY_B.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(4.0) LODOut=(8.0) ShadowReceiver=True
+  <MED>  MeshFile=E_SZARNY_C.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(8.0) LODOut=(30.0) 
+  <MED>  MeshFile=E_SZARNY_D.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(30.0) LODOut=(300.0)
+  //------------------------------------LOW CAR SETTINGS---------------------------------------------
+   <LOW>  MeshFile=E_SZARNY_B.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(0.0) LODOut=(15.0) ShadowReceiver=True
+   <LOW>  MeshFile=E_SZARNY_C.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(15.0) LODOut=(30.0)
+   <LOW>  MeshFile=E_SZARNY_D.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(30.0) LODOut=(250.0) 
+   }
+   
+////////////////////////////////////H�TS� SZ�RNY/////////////////
+  Instance=Rwing
+  {
+    Moveable=True
+	//------------------------------------MAX CAR SETTINGS---------------------------------------------
+  <MAX>  MeshFile=H_SZARNY_A.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(4.0) ShadowReceiver=True
+  <MAX>  MeshFile=H_SZARNY_B.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(4.0) LODOut=(9.0) ShadowReceiver=True
+  <MAX>  MeshFile=H_SZARNY_C.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(9.0) LODOut=(48.0) ShadowReceiver=True
+  <MAX>  MeshFile=H_SZARNY_D.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(48.0) LODOut=(550.0) ShadowReceiver=True
+    //------------------------------------HIGH CAR SETTINGS--------------------------------------------
+  <HIGH>  MeshFile=H_SZARNY_A.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(4.0) ShadowReceiver=True
+  <HIGH>  MeshFile=H_SZARNY_B.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(4.0) LODOut=(8.0) ShadowReceiver=True
+  <HIGH>  MeshFile=H_SZARNY_C.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(8.0) LODOut=(40.0) ShadowReceiver=True
+  <HIGH>  MeshFile=H_SZARNY_D.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(40.0) LODOut=(350.0) ShadowReceiver=True
+  //------------------------------------MED CAR SETTINGS---------------------------------------------
+  <MED>  MeshFile=H_SZARNY_A.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(4.0) ShadowReceiver=True
+  <MED>  MeshFile=H_SZARNY_B.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(4.0) LODOut=(7.0) ShadowReceiver=True
+  <MED>  MeshFile=H_SZARNY_C.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(7.0) LODOut=(29.0)
+  <MED>  MeshFile=H_SZARNY_D.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(29.0) LODOut=(300.0)
+  //------------------------------------LOW CAR SETTINGS---------------------------------------------
+   <LOW>  MeshFile=H_SZARNY_B.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(0.0) LODOut=(16.0) ShadowReceiver=True
+   <LOW>  MeshFile=H_SZARNY_C.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(16.0) LODOut=(32.0)
+   <LOW>  MeshFile=H_SZARNY_D.GMT CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 32, 32) LODIn=(32.0) LODOut=(250.0)
+  }
+   
+//////////////////////////////////// FELF�GGESZT�S /////////////////
+  Instance=DEBRIS5
+  {
+    Moveable=True
+    MeshFile=SUSP_LF.gmt CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(250.0) ShadowReceiver=True
+  }
+  Instance=DEBRIS6
+  {
+    Moveable=True
+    MeshFile=SUSP_LR.gmt CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(250.0) ShadowReceiver=True
+  }
+  Instance=DEBRIS7
+  {
+    Moveable=True
+    MeshFile=SUSP_RF.gmt CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(250.0) ShadowReceiver=True
+  }
+  Instance=DEBRIS8
+  {
+    Moveable=True
+    MeshFile=SUSP_RR.gmt CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(250.0) ShadowReceiver=True
+  }
+ 
+//////////////////////////////////// DRIVER ////////////////////////////////////////////////////////////////////////////////
+    Instance=Driver
+  {
+    Moveable=True
+    MeshFile=RENpilota.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(40.0) ShadowReceiver=True
+  }
+    Instance=Helmet
+  {
+    Moveable=True
+    MeshFile=RENsisak<12>_A.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(6.0) ShadowReceiver=True
+    MeshFile=RENsisak<12>_C.gmt CollTarget=False HATTarget=False LODIn=(6.0) LODOut=(40.0) ShadowReceiver=True
+    MeshFile=RENsisak<12>_C.gmt CollTarget=False HATTarget=False LODIn=(40.0) LODOut=(350.0)
+  }
+
+/////////////////////////////////////////////////GUMIK////////////////////////////////////////////////////////
+/////////////////////////////////LF BAL ELS� KER�K �S F�K//////////////////////////////////////////////////
+ 
+Instance=LFTIRE
+  {
+    Moveable=True
+   
+    <MAX> MeshFile=<LFTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 256, 256) LODIn=(0.00) LODOut=(8.0) ShadowReceiver=True
+    <MAX> MeshFile=<LFTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(8.00) LODOut=(15.0) ShadowReceiver=True
+    <MAX> MeshFile=<LFTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(15.00) LODOut=(350.0) ShadowReceiver=True
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <HIGH> MeshFile=<LFTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(6.0) ShadowReceiver=True
+    <HIGH> MeshFile=<LFTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(6.00) LODOut=(14.0) ShadowReceiver=True
+    <HIGH> MeshFile=<LFTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(14.00) LODOut=(300.0)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <MED> MeshFile=<LFTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(5.0) ShadowReceiver=True
+    <MED> MeshFile=<LFTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(5.00) LODOut=(12.0) ShadowReceiver=True
+    <MED> MeshFile=<LFTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(12.00) LODOut=(250.0)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <LOW> MeshFile=<LFTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(20.0) ShadowReceiver=True
+    <LOW> MeshFile=<LFTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(20.00) LODOut=(200.0)
+    
+/////////////////////////////////////////////////KER�KT�RCSA//////////////////////////////////////////////////
+ 
+    MeshFile=RIM_LF.GMT CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(4.0) ShadowReceiver=True
+    MeshFile=RIM_LF_B.GMT CollTarget=False HATTarget=False LODIn=(4.00) LODOut=(11.0) ShadowReceiver=True
+    MeshFile=RIM_LF_C.GMT CollTarget=False HATTarget=False LODIn=(11.00) LODOut=(150.0) ShadowReceiver=True
+    MeshFile=Form_lf_dg.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0)
+    MeshFile=BREAKDISC_LF.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0)
+  }
+
+  Instance=LFSpindle
+  {
+    Moveable=True
+    MeshFile=Form_lf_cal.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) ShadowReceiver=True
+    MeshFile=SUSPBF_LF.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(6.0) ShadowReceiver=True
+    MeshFile=SUSPBF_LF_B.gmt CollTarget=False HATTarget=False LODIn=(6.00) LODOut=(40.0) ShadowReceiver=True
+  }
+
+/////////////////////////////////RF JOBB ELS� KER�K �S F�K//////////////////////////////////////////////////
+  
+Instance=RFTIRE
+  {
+    Moveable=True
+   
+    <MAX> MeshFile=<RFTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 256, 256) LODIn=(0.00) LODOut=(8.0) ShadowReceiver=True
+    <MAX> MeshFile=<RFTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(8.00) LODOut=(15.0) ShadowReceiver=True
+    <MAX> MeshFile=<RFTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(15.00) LODOut=(350.0) ShadowReceiver=True
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <HIGH> MeshFile=<RFTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(6.0) ShadowReceiver=True
+    <HIGH> MeshFile=<RFTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(6.00) LODOut=(14.0) ShadowReceiver=True
+    <HIGH> MeshFile=<RFTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(14.00) LODOut=(300.0)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <MED> MeshFile=<RFTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(5.0) ShadowReceiver=True
+    <MED> MeshFile=<RFTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(5.00) LODOut=(12.0) ShadowReceiver=True
+    <MED> MeshFile=<RFTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(12.00) LODOut=(250.0)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <LOW> MeshFile=<RFTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(20.0) ShadowReceiver=True
+    <LOW> MeshFile=<RFTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(20.00) LODOut=(200.0)
+    
+/////////////////////////////////////////////////KER�KT�RCSA//////////////////////////////////////////////////
+ 
+    MeshFile=RIM_RF.GMT CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(4.0) ShadowReceiver=True
+    MeshFile=RIM_RF_B.GMT CollTarget=False HATTarget=False LODIn=(4.00) LODOut=(11.0) ShadowReceiver=True
+    MeshFile=RIM_RF_C.GMT CollTarget=False HATTarget=False LODIn=(11.00) LODOut=(150.0) ShadowReceiver=True
+    MeshFile=BREAKDISC_RF.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0)
+    MeshFile=Form_RF_dg.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0)
+  }
+
+  Instance=RFSpindle
+  {
+    Moveable=True
+    MeshFile=Form_RF_cal.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) ShadowReceiver=True
+    MeshFile=SUSPBF_RF.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(6.0) ShadowReceiver=True
+    MeshFile=SUSPBF_RF_B.gmt CollTarget=False HATTarget=False LODIn=(6.00) LODOut=(40.0) ShadowReceiver=True
+  }
+  
+/////////////////////////////////LR BAL H�TS� KER�K �S F�K//////////////////////////////////////////////////
+  
+Instance=LRTIRE
+  {
+  
+    Moveable=True
+   
+    <MAX> MeshFile=<LRTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 256, 256) LODIn=(0.00) LODOut=(8.0) ShadowReceiver=True
+    <MAX> MeshFile=<LRTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(8.00) LODOut=(15.0) ShadowReceiver=True
+    <MAX> MeshFile=<LRTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(15.00) LODOut=(350.0) ShadowReceiver=True
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <HIGH> MeshFile=<LRTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(6.0) ShadowReceiver=True
+    <HIGH> MeshFile=<LRTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(6.00) LODOut=(14.0) ShadowReceiver=True
+    <HIGH> MeshFile=<LRTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(14.00) LODOut=(300.0)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <MED> MeshFile=<LRTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(5.0) ShadowReceiver=True
+    <MED> MeshFile=<LRTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(5.00) LODOut=(12.0) ShadowReceiver=True
+    <MED> MeshFile=<LRTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(12.00) LODOut=(250.0)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <LOW> MeshFile=<LRTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(20.0) ShadowReceiver=True
+    <LOW> MeshFile=<LRTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(20.00) LODOut=(200.0)
+    
+/////////////////////////////////////////////////KER�KT�RCSA//////////////////////////////////////////////////
+ 
+    MeshFile=RIM_LR.GMT CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(4.0) ShadowReceiver=True
+    MeshFile=RIM_LR_B.GMT CollTarget=False HATTarget=False LODIn=(4.00) LODOut=(11.0) ShadowReceiver=True
+    MeshFile=RIM_LR_C.GMT CollTarget=False HATTarget=False LODIn=(11.00) LODOut=(150.0) ShadowReceiver=True
+    MeshFile=BREAKDISC_LR.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0)
+    MeshFile=Form_lR_dg.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0)
+  }
+
+  Instance=LRSpindle
+  {
+    Moveable=True
+    MeshFile=Form_lR_cal.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) ShadowReceiver=True
+    MeshFile=SUSPBF_LR.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(4.0) ShadowReceiver=True
+    MeshFile=SUSPBF_LR_B.gmt CollTarget=False HATTarget=False LODIn=(4.00) LODOut=(20.0) ShadowReceiver=True
+  }
+/////////////////////////////////RR JOBB H�TS� KER�K �S F�K//////////////////////////////////////////////////
+  Instance=RRTIRE
+  {
+  
+    Moveable=True
+   
+    <MAX> MeshFile=<RRTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 256, 256) LODIn=(0.00) LODOut=(8.0) ShadowReceiver=True
+    <MAX> MeshFile=<RRTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(8.00) LODOut=(15.0) ShadowReceiver=True
+    <MAX> MeshFile=<RRTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(15.00) LODOut=(350.0) ShadowReceiver=True
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <HIGH> MeshFile=<RRTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(6.0) ShadowReceiver=True
+    <HIGH> MeshFile=<RRTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(6.00) LODOut=(14.0) ShadowReceiver=True
+    <HIGH> MeshFile=<RRTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(14.00) LODOut=(300.0)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <MED> MeshFile=<RRTIREA> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(5.0) ShadowReceiver=True
+    <MED> MeshFile=<RRTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(5.00) LODOut=(12.0) ShadowReceiver=True
+    <MED> MeshFile=<RRTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(12.00) LODOut=(250.0)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    <LOW> MeshFile=<RRTIREB> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 128, 128) LODIn=(0.00) LODOut=(20.0) ShadowReceiver=True
+    <LOW> MeshFile=<RRTIREC> CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(20.00) LODOut=(200.0)
+    
+/////////////////////////////////////////////////KER�KT�RCSA//////////////////////////////////////////////////
+ 
+    MeshFile=RIM_RR.GMT CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(4.0) ShadowReceiver=True
+    MeshFile=RIM_RR_B.GMT CollTarget=False HATTarget=False LODIn=(4.00) LODOut=(11.0) ShadowReceiver=True
+    MeshFile=RIM_RR_C.GMT CollTarget=False HATTarget=False LODIn=(11.00) LODOut=(150.0) ShadowReceiver=True
+    MeshFile=BREAKDISC_RR.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0)
+    MeshFile=Form_RR_dg.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0)
+  }
+
+  Instance=RRSpindle
+  {
+    Moveable=True
+    MeshFile=Form_RR_cal.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) ShadowReceiver=True
+    MeshFile=SUSPBF_RR.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(4.0) ShadowReceiver=True
+    MeshFile=SUSPBF_RR_B.gmt CollTarget=False HATTarget=False LODIn=(4.00) LODOut=(20.0) ShadowReceiver=True
+  }
+  
+<LIGHTRAIN>  Instance=RAINLIGHT
+<LIGHTRAIN>  {
+<LIGHTRAIN>    Moveable=True
+<LIGHTRAIN>    MeshFile=rain.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(65.0)
+<LIGHTRAIN>  }  
+}

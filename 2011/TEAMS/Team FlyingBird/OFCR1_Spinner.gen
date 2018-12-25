@@ -1,0 +1,142 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// A MENUBEN MEGJELENO AUTO ES KIEGESZITOI SPECIALIS *.GENERATE FILE
+// A *.VEH FILEBEN KELL RA HIVATKOZNI SPINNER NEVEN, HOGY HELYESEN TOLTODJON BE
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//----------------------------------------
+
+SearchPath=<VEHDIR>
+SearchPath=<TEAMDIR>
+MASFile=2011\TEAMS\F1RFTCOMM.mas
+MASFile=2011\TEAMS\TIRES.mas
+MASFile=cmaps.mas
+MASFile=TEAM.mas
+MASFile=TEAMTEXT.MAS
+
+
+ReflectPlane=(0.0, -1.0, 0.0, 0.0)
+
+//----------------------------------------
+
+Instance=SLOT<ID>
+{
+ Moveable=True
+  MeshFile=WILLIAMS_A.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(100.0) Reflect=True
+  MeshFile=WILSISAK_SPIN.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(100.0) Reflect=True
+  MeshFile=FORM_SHAD.gmt CollTarget=False HATTarget=False ShadowObject=(Dynamic, Solid, 512, 512) LODIn=(0.0) LODOut=(200.0) Reflect=True
+
+  Actor=VEHICLE
+  
+  
+ <STARTUPGRADES>
+///////////////////////////////////KORMANY/////////////////
+Instance=wheel
+{
+  Moveable=True
+  MeshFile=WILKORMANY_NK.gmt CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 64, 64) LODIn=(0.0) LODOut=(350.0) Reflect=True
+}
+
+////////////////////////////////////ELSO SZARNY/////////////////
+  Instance=Fwing
+  {
+   Moveable=True
+   MeshFile=E_SZARNY_A.GMT CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128) LODIn=(0.0) LODOut=(350.0) Reflect=True 
+ } 
+////////////////////////////////////HATSO SZARNY/////////////////
+  Instance=Rwing
+  {
+    Moveable=True
+    MeshFile=H_SZARNY_A.GMT CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128) LODIn=(0.0) LODOut=(350.0) Reflect=True
+    MeshFile=REDDRS_SPIN.GMT CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128) LODIn=(0.0) LODOut=(350.0) Reflect=True  
+  }
+
+
+////////////////////////////////////FELFUGGESZTES/////////////////
+  Instance=DEBRIS5
+  {
+    Moveable=True
+    MeshFile=SUSP_LF.gmt CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(100.0) Reflect=True
+  }
+  Instance=DEBRIS6
+  {
+    Moveable=True
+    MeshFile=SUSP_LR.gmt CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(100.0) Reflect=True
+  }
+  Instance=DEBRIS7
+  {
+    Moveable=True
+    MeshFile=SUSP_RF.gmt CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(100.0) Reflect=True
+  }
+  Instance=DEBRIS8
+  {
+    Moveable=True
+   MeshFile=SUSP_RR.gmt CollTarget=False HATTarget=False ShadowCaster=(True, Solid, 64, 64) LODIn=(0.0) LODOut=(100.0) Reflect=True
+  }
+  
+/////////////////////////////////////////////////KEREKEK////////////////////////////////////////////////////////
+/////////////////////////////////BAL ELSO KEREK Spindle//////////////////////////////////////////////////
+    
+  Instance=LFTIRE<UPNUMBER>
+  {
+    Moveable=True
+    MeshFile=<LFTIREA> CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128)  LODIn=(0.00) LODOut=(350.0) Reflect=True
+    MeshFile=RIM_LF.gmt CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128)  LODIn=(0.00) LODOut=(350.0) Reflect=True
+    MeshFile=BREAKDISC_LF.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+  }
+
+  Instance=LFSpindle
+  {
+    Moveable=True
+    MeshFile=Form_lf_cal.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+    MeshFile=SUSPBF_LF.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+
+  }
+/////////////////////////////////Right Front Tire and Spindle//////////////////////////////////////////////////
+  Instance=RFTIRE<UPNUMBER>
+  {
+   Moveable=True
+   MeshFile=<RFTIREA> CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128)  LODIn=(0.00) LODOut=(350.0) Reflect=True
+   MeshFile=RIM_RF.gmt CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128)  LODIn=(0.00) LODOut=(350.0) Reflect=True
+   MeshFile=BREAKDISC_RF.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+  }
+
+  Instance=RFSpindle
+  {
+    Moveable=True
+    MeshFile=Form_rf_cal.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+    MeshFile=SUSPBF_RF.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+  }
+/////////////////////////////////Left Rear Tire and Spindle//////////////////////////////////////////////////
+
+  Instance=LRTIRE<UPNUMBER>
+  {
+    Moveable=True
+    MeshFile=<LRTIREA> CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128)  LODIn=(0.00) LODOut=(350.0) Reflect=True
+    MeshFile=RIM_LR.gmt CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128)  LODIn=(0.00) LODOut=(350.0) Reflect=True
+    MeshFile=BREAKDISC_LR.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+  }
+
+  Instance=LRSpindle
+  {
+    Moveable=True
+    MeshFile=Form_lr_cal.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+    MeshFile=SUSPBF_LR.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+  }
+/////////////////////////////////Right Rear Tire and Spindle//////////////////////////////////////////////////
+ 
+   Instance=RRTIRE<UPNUMBER>
+  {
+    Moveable=True
+    MeshFile=<RRTIREA> CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128)  LODIn=(0.00) LODOut=(350.0) Reflect=True
+    MeshFile=RIM_RR.gmt CollTarget=False HATTarget=False ShadowCaster=(Dynamic, Solid, 128, 128)  LODIn=(0.00) LODOut=(350.0) Reflect=True
+    MeshFile=BREAKDISC_RR.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+  }
+  
+  Instance=RRSpindle
+  {
+    Moveable=True
+    MeshFile=Form_RR_cal.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+    MeshFile=SUSPBF_RR.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.0) Reflect=True
+  }
+   <STOPUPGRADES>
+}

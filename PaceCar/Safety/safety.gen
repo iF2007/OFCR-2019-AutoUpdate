@@ -1,0 +1,277 @@
+
+// This file specifices how to generate the vehicle graphics.
+// It is pointed to by one or more *.veh files.
+//
+// All information except tokens are copied directly.
+// Tokens have the format "<value>" where value is one of the following:
+//   ID        - this is replaced by the proper slot identification (000, 001, etc.), or
+//   1,2,3,etc - this is replaced by the first 1,2,3 characters of the
+//               vehicle filename
+//   VEHDIR    - this is replaced with the proper vehicles directory (e.g. E:\Data\season01\vehicles)
+//   TEAMDIR   - this is replaced with the proper team directory (e.g. season01\vehicles\williams)
+//   SPIN      - for the vehicle spinner in the options only
+//   NOTSPIN   - for everything EXCEPT the vehicle spinner
+//   LOW       - low detail only
+//   MED       - medium detail only
+//   HIGH      - high detail only
+//   MAX       - maximum detail only
+//   DASHLOW   - low detail dash
+//   DASHHIGH  - high detail dash
+//
+// Example:
+//   For slot #2 using the vehicle file "nicecar.veh", the line
+//   "Instance=SLOT<ID>   MeshFile=<123>gva.gmt" would be replaced with
+//   "Instance=SLOT002   MeshFile=nicgva.gmt"
+
+
+//----------------------------------------
+
+SearchPath=<VEHDIR>
+SearchPath=<TEAMDIR>
+
+MASFile=Safety_PC.mas
+MASFile=cmaps.mas
+
+//----------------------------------------
+
+Instance=SLOT<ID>
+{
+Moveable=True
+MeshFile=sc_driver.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(250.0)
+//------------------------------------MAX CAR SETTINGS---------------------------------------------
+<MAX>  MeshFile=BODY_A.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(25.0) ShadowReceiver=True
+<MAX>  MeshFile=BODY_B.gmt CollTarget=False HATTarget=False LODIn=(25.0) LODOut=(50.0) ShadowReceiver=True
+<MAX>  MeshFile=BODY_C.gmt CollTarget=False HATTarget=False LODIn=(50.0) LODOut=(75.0) ShadowReceiver=True
+<MAX>  MeshFile=BODY_D.gmt CollTarget=False HATTarget=False LODIn=(75.0) LODOut=(350.0) ShadowReceiver=True
+<MAX>  MeshFile=BODY_D.gmt CollTarget=False HATTarget=False LODIn=(350.0) LODOut=(750.0) ShadowReceiver=True
+//------------------------------------HIGH CAR SETTINGS--------------------------------------------
+<HIGH> MeshFile=BODY_A.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(20.0) ShadowReceiver=True
+<HIGH> MeshFile=BODY_B.gmt CollTarget=False HATTarget=False LODIn=(20.0) LODOut=(40.0) ShadowReceiver=True
+<HIGH> MeshFile=BODY_C.gmt CollTarget=False HATTarget=False LODIn=(40.0) LODOut=(60.0) ShadowReceiver=True
+<HIGH> MeshFile=BODY_D.gmt CollTarget=False HATTarget=False LODIn=(60.0) LODOut=(250.0) ShadowReceiver=True
+<HIGH> MeshFile=BODY_D.gmt CollTarget=False HATTarget=False LODIn=(250.0) LODOut=(450.0) ShadowReceiver=True
+//------------------------------------MED CAR SETTINGS---------------------------------------------
+<MED>  MeshFile=BODY_B.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(15.0) ShadowReceiver=True
+<MED>  MeshFile=BODY_C.gmt CollTarget=False HATTarget=False LODIn=(15.0) LODOut=(50.0) ShadowReceiver=True
+<MED>  MeshFile=BODY_D.gmt CollTarget=False HATTarget=False LODIn=(50.0) LODOut=(150.0) ShadowReceiver=True
+<MED>  MeshFile=BODY_D.gmt CollTarget=False HATTarget=False LODIn=(150.0) LODOut=(300.0) ShadowReceiver=True
+//------------------------------------LOW CAR SETTINGS---------------------------------------------
+<LOW>  MeshFile=BODY_B.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(10.0) ShadowReceiver=True
+<LOW>  MeshFile=BODY_C.gmt CollTarget=False HATTarget=False LODIn=(10.0) LODOut=(50.0) ShadowReceiver=True
+<LOW>  MeshFile=BODY_D.gmt CollTarget=False HATTarget=False LODIn=(50.0) LODOut=(150.0) ShadowReceiver=True 
+<LOW>  MeshFile=BODY_D.gmt CollTarget=False HATTarget=False LODIn=(150.0) LODOut=(250.0) ShadowReceiver=True
+//------------------------------------SHADOW AND COLLISION OBJECTS---------------------------------
+MeshFile=SC_SHAD.gmt CollTarget=False HATTarget=False ShadowObject=(True, Solid, 256, 256, sc_undershadow.tga) LODIn=(0.0) LODOut=(200.0)
+MeshFile=BODY_D.gmt Render=False CollTarget=True HATTarget=False LODIn=(0.0) LODOut=(0.0)
+
+Actor=VEHICLE
+
+/////////////////////////////////Safety Car Lights - Warninglights and Lightbar//////////////////////////////////////////////////
+
+  Instance=WARNINGLIGHT
+  {
+    Moveable=True
+    MeshFile=WARNINGLIGHT.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(500.0)
+  }
+  Instance=LIGHTBAR
+  {
+   Moveable=True
+    MeshFile=Lightbar.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(500.0) ShadowReceiver=True
+  }
+
+////////////////////////////////////Steering Wheel/////////////////
+
+Instance=WHEEL
+{
+Moveable=True
+MeshFile=WHEEL.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(100.0)
+}
+
+//////////////////////////////////// DRIVER ////////////////////////////////////////////////////////////////////////////////
+
+Instance=HELMET
+  {
+Moveable=True
+MeshFile=sc_helmet_med.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(250.0)
+}
+
+//////////////////////////////////// BRAKELIGHTS ///////////////////////////////////////////////////////////////////////////
+
+Instance=BLIGHTDS
+{
+Moveable=True
+MeshFile=blglo_DS.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(250.0)
+}
+
+Instance=BLIGHTPS
+{
+Moveable=True
+MeshFile=blglo_PS.gmt CollTarget=False HATTarget=False LODIn=(0.0) LODOut=(250.0)
+}
+
+/////////////////////////////////////////////////TIRES////////////////////////////////////////////////////////
+/////////////////////////////////Left Front Tire and Spindle//////////////////////////////////////////////////
+
+Instance=LFTIRE
+{ 
+Moveable=True 
+//-----------------------------------------------------------------------------------------------------MAX SETUP -------> 
+<MAX>  MeshFile=LF_TIRE_A.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+<MAX>  MeshFile=LF_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(50.00) LODOut=(100.00)
+<MAX>  MeshFile=LF_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(100.00) LODOut=(175.00)
+<MAX>  MeshFile=LF_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(175.00) LODOut=(320.00)
+//------------------------------------------------------------------------------------HIGH SETUP -------> 
+<HIGH> MeshFile=LF_TIRE_A.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(8.0)
+<HIGH> MeshFile=LF_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(8.00) LODOut=(25.00)
+<HIGH> MeshFile=LF_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(25.00) LODOut=(90.00)
+<HIGH> MeshFile=LF_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(90.00) LODOut=(280.00)  
+//-----------------------------------------------------------------------MED SETUP -------> 
+<MED>  MeshFile=LF_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(6.00)
+<MED>  MeshFile=LF_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(6.00) LODOut=(60.00)
+<MED>  MeshFile=LF_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(60.00) LODOut=(240.00)  
+//--------------------------------------------------------LOW SETUP -------> 
+<LOW>  MeshFile=LF_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(65.00)
+<LOW>  MeshFile=LF_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(65.00) LODOut=(210.00)
+}
+
+Instance=LFSpindle
+{
+Moveable=True
+//-----------------------------------------------------------------------------------------------------MAX SETUP ------->
+<MAX>  MeshFile=LF_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+<MAX>  MeshFile=LF_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+//------------------------------------------------------------------------------------HIGH SETUP ------->
+<HIGH> MeshFile=LF_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(40.0)
+<HIGH> MeshFile=LF_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(40.0) 
+//-----------------------------------------------------------------------MED SETUP ------->
+<MED>  MeshFile=LF_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(30.00)
+<MED>  MeshFile=LF_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(30.00) 
+//--------------------------------------------------------LOW SETUP -------> 
+<LOW>  MeshFile=LF_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.00)
+<LOW>  MeshFile=LF_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.00)
+}
+
+/////////////////////////////////Right Front Tire and Spindle//////////////////////////////////////////////////	
+
+Instance=RFTIRE
+{ 
+Moveable=True 
+//-----------------------------------------------------------------------------------------------------MAX SETUP -------> 
+<MAX>  MeshFile=RF_TIRE_A.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+<MAX>  MeshFile=RF_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(50.00) LODOut=(100.00)
+<MAX>  MeshFile=RF_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(100.00) LODOut=(175.00)
+<MAX>  MeshFile=RF_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(175.00) LODOut=(320.00)
+//------------------------------------------------------------------------------------HIGH SETUP -------> 
+<HIGH> MeshFile=RF_TIRE_A.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(8.0)
+<HIGH> MeshFile=RF_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(8.00) LODOut=(25.00)
+<HIGH> MeshFile=RF_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(25.00) LODOut=(90.00)
+<HIGH> MeshFile=RF_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(90.00) LODOut=(280.00)  
+//-----------------------------------------------------------------------MED SETUP -------> 
+<MED>  MeshFile=RF_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(6.00)
+<MED>  MeshFile=RF_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(6.00) LODOut=(60.00)
+<MED>  MeshFile=RF_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(60.00) LODOut=(240.00)  
+//--------------------------------------------------------LOW SETUP -------> 
+<LOW>  MeshFile=RF_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(65.00)
+<LOW>  MeshFile=RF_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(65.00) LODOut=(210.00)
+}
+
+Instance=RFSpindle
+{
+Moveable=True
+//-----------------------------------------------------------------------------------------------------MAX SETUP ------->
+<MAX>  MeshFile=RF_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+<MAX>  MeshFile=RF_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+//------------------------------------------------------------------------------------HIGH SETUP ------->
+<HIGH> MeshFile=RF_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(40.0)
+<HIGH> MeshFile=RF_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(40.0) 
+//-----------------------------------------------------------------------MED SETUP ------->
+<MED>  MeshFile=RF_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(30.00)
+<MED>  MeshFile=RF_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(30.00) 
+//--------------------------------------------------------LOW SETUP -------> 
+<LOW>  MeshFile=RF_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.00)
+<LOW>  MeshFile=RF_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.00)
+}
+
+/////////////////////////////////Left Rear Tire and Spindle//////////////////////////////////////////////////
+
+Instance=LRTIRE
+{ 
+Moveable=True 
+//-----------------------------------------------------------------------------------------------------MAX SETUP -------> 
+<MAX>  MeshFile=LR_TIRE_A.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+<MAX>  MeshFile=LR_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(50.00) LODOut=(100.00)
+<MAX>  MeshFile=LR_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(100.00) LODOut=(175.00)
+<MAX>  MeshFile=LR_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(175.00) LODOut=(320.00)
+//------------------------------------------------------------------------------------HIGH SETUP -------> 
+<HIGH> MeshFile=LR_TIRE_A.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(8.0)
+<HIGH> MeshFile=LR_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(8.00) LODOut=(25.00)
+<HIGH> MeshFile=LR_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(25.00) LODOut=(90.00)
+<HIGH> MeshFile=LR_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(90.00) LODOut=(280.00)  
+//-----------------------------------------------------------------------MED SETUP -------> 
+<MED>  MeshFile=LR_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(6.00)
+<MED>  MeshFile=LR_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(6.00) LODOut=(60.00)
+<MED>  MeshFile=LR_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(60.00) LODOut=(240.00)  
+//--------------------------------------------------------LOW SETUP -------> 
+<LOW>  MeshFile=LR_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(65.00)
+<LOW>  MeshFile=LR_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(65.00) LODOut=(210.00)
+}
+
+Instance=LRSpindle
+{
+Moveable=True
+//-----------------------------------------------------------------------------------------------------MAX SETUP ------->
+<MAX>  MeshFile=LR_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+<MAX>  MeshFile=LR_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+//------------------------------------------------------------------------------------HIGH SETUP ------->
+<HIGH> MeshFile=LR_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(40.0)
+<HIGH> MeshFile=LR_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(40.0) 
+//-----------------------------------------------------------------------MED SETUP ------->
+<MED>  MeshFile=LR_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(30.00)
+<MED>  MeshFile=LR_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(30.00) 
+//--------------------------------------------------------LOW SETUP -------> 
+<LOW>  MeshFile=LR_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.00)
+<LOW>  MeshFile=LR_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.00)
+}
+
+/////////////////////////////////Right Rear Tire and Spindle//////////////////////////////////////////////////
+
+Instance=RRTIRE
+{ 
+Moveable=True 
+//-----------------------------------------------------------------------------------------------------MAX SETUP -------> 
+<MAX>  MeshFile=RR_TIRE_A.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+<MAX>  MeshFile=RR_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(50.00) LODOut=(100.00)
+<MAX>  MeshFile=RR_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(100.00) LODOut=(175.00)
+<MAX>  MeshFile=RR_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(175.00) LODOut=(320.00)
+//------------------------------------------------------------------------------------HIGH SETUP -------> 
+<HIGH> MeshFile=RR_TIRE_A.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(8.0)
+<HIGH> MeshFile=RR_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(8.00) LODOut=(25.00)
+<HIGH> MeshFile=RR_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(25.00) LODOut=(90.00)
+<HIGH> MeshFile=RR_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(90.00) LODOut=(280.00)  
+//-----------------------------------------------------------------------MED SETUP -------> 
+<MED>  MeshFile=RR_TIRE_B.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(6.00)
+<MED>  MeshFile=RR_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(6.00) LODOut=(60.00)
+<MED>  MeshFile=RR_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(60.00) LODOut=(240.00)  
+//--------------------------------------------------------LOW SETUP -------> 
+<LOW>  MeshFile=RR_TIRE_C.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(65.00)
+<LOW>  MeshFile=RR_TIRE_D.gmt CollTarget=False HATTarget=False LODIn=(65.00) LODOut=(210.00)
+}
+
+Instance=RRSpindle
+{
+Moveable=True
+//-----------------------------------------------------------------------------------------------------MAX SETUP ------->
+<MAX>  MeshFile=RR_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+<MAX>  MeshFile=RR_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(50.0)
+//------------------------------------------------------------------------------------HIGH SETUP ------->
+<HIGH> MeshFile=RR_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(40.0)
+<HIGH> MeshFile=RR_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(40.0) 
+//-----------------------------------------------------------------------MED SETUP ------->
+<MED>  MeshFile=RR_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(30.00)
+<MED>  MeshFile=RR_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(30.00) 
+//--------------------------------------------------------LOW SETUP -------> 
+<LOW>  MeshFile=RR_BRAKE.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.00)
+<LOW>  MeshFile=RR_GLOW.gmt CollTarget=False HATTarget=False LODIn=(0.00) LODOut=(20.00)
+}
+
+}
