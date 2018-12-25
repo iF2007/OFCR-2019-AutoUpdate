@@ -1,7 +1,8 @@
 # OFCR-2019-AutoUpdate
 
 **This tutorial will provide instruction to experience the experimental OFCR auto update system**  
-## Step 1: Delete local vehicle folder  
+## Step 1: Delete local vehicle folder 
+**ALWAYS BACKUP YOUR ORIGINAL FOLDER**  
 ![image](https://i.ibb.co/fC9vjSK/step1-1.png)  
 ## Step 2: Register a GitHub account and download [GitHub Desktop](https://desktop.github.com/)  
 ## Step 3: Choose 'clone repository', search OFCR-2019-AutoUpdate  
