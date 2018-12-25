@@ -4,6 +4,8 @@
 
 This tutorial presents two approaches: (1) Command line prompt with `Git` (efficient); (2) [GitHub Desktop](https://desktop.github.com/), which has intuitive user interface.
 
+*Of course you can always click `Download ZIP` button in `Clone or download` and extract the files to correct directory on your own* :)
+
 
 
 ## Command line prompt
