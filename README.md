@@ -4,7 +4,7 @@
 ## Step 1: Delete local vehicle folder 
 **ALWAYS BACKUP YOUR ORIGINAL FOLDER**  
 ![image](https://i.ibb.co/fC9vjSK/step1-1.png)  
-## Step 2: Register a GitHub account_(optional)_ and download [GitHub Desktop](https://desktop.github.com/)  
+## Step 2: Register a GitHub account _(optional)_  and download [GitHub Desktop](https://desktop.github.com/)  
 ## Step 3: Choose 'clone repository' and modify path as shown below
 Copy https://github.com/OMGCA/OFCR-2019-AutoUpdate.git in the URL tab  
 ![image](https://i.ibb.co/tK8pP3v/TIM-20181225112125.png)  
