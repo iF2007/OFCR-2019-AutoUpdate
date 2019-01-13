@@ -2,17 +2,17 @@
 Rules=0                         // What rules to apply to garage setups (0=none, 1=stock car)
 GarageDisplayFlags=47           // How settings are displayed in garage (add): 1=rear downforce value (vs. angle), 2=radiator (vs. grille tape), 4=more gear info, 8+16=front downforce/wing/splitter/air dam, 32+64=rear downforce/wing/spoiler
 Mass=620                       // All mass except fuel
-Inertia=(646.5,1282.0, 110.2)   // All inertia except fuel
-FuelTankPos=(0.00, 0.215,-1.47) // Location of tank relative to center of rear axle in reference plane
-FuelTankMotion=(560.0, 0.65)    // Simple model of fuel movement in tank (spring rate per kg, critical damping ratio)
+Inertia=(690.8, 806.2, 100.2)   // All inertia except fuel
+FuelTankPos=(0.0, 0.242,-1.285) // Location of tank relative to center of rear axle in reference plane
+FuelTankMotion=(555.0, 0.65)     // Simple model of fuel movement in tank (spring rate per kg, critical damping ratio)
 Notes=""
 Symmetric=1
 DamageFile=damage19         // .ini file to find physical and graphical damage info
-CGHeight=0.2272                  // Height of body mass (excluding fuel) above reference plane
-CGRightRange=(0.500, 0.002, 1) // Fraction of weight on left tires
-CGRightSetting=1
-CGRearRange=(0.565, 0.002, 1)  			  // fraction of weight on rear tires
-CGRearSetting=1
+CGHeight=0.2185                  // Height of body mass (excluding fuel) above reference plane
+CGRightRange=(0.495, 0.001, 11) // Fraction of weight on left tires
+CGRightSetting=5
+CGRearRange=( 0.584, 0.001, 28) 			  // fraction of weight on rear tires
+CGRearSetting=5
 WedgeRange=(0.0, 0.25, 1)       // Rounds of wedge
 WedgeSetting=0
 WedgePushrod=0.0                // Each round of wedge changes rear-left jacking screw by this amount (0.0 to disable, use Rules to allow FR ride height)
@@ -83,7 +83,7 @@ LeftRightTires=(0,0)                // Option for changing left tires, right tir
 IndividualTires=(0,0,0,0)           // Option for changing individual tire FL, FR, RL, RR (all other conflicting tire choices should be 0); default=(0,0,0,0)
 FenderFlare=(0,0)                   // Options for changing left fender flare, right fender flare; default=(0,0)
 FrontWing=1                         // Front wing adjustment (front wing repair is covered under Damage); default=1
-RearWing=0                          // Rear wing adjustment (rear wing repair is covered under Damage); default=0
+RearWing=1                          // Rear wing adjustment (rear wing repair is covered under Damage); default=0
 Driver=0                            // Driver change; default=1
 Wedge=0                             // Wedge adjustment; default=0
 Radiator=0                          // Radiator or grille tape adjustment; default=0
@@ -91,23 +91,23 @@ TrackBar=0                          // Track bar adjustment; default=0
 Pressure=(0,0,0,0)                  // Tire pressure adjustment FL, FR, RL, RR; default=(0,0,0,0)
 SpringRubber=(0,0,0,0)              // Spring rubber adjustment FL, FR, RL, RR; default=(0,0,0,0)
 Damage=2                            // Number of options to fix damage (0=none, 1=bodywork, 2=bodywork+suspension); default=2
-StopGoSimultaneous=1                // Whether stop/go penalties can be served during a regular pit stop (time is added at end); default=0
+StopGoSimultaneous=0                // Whether stop/go penalties can be served during a regular pit stop (time is added at end); default=0
 PressureOnTheFly=0                  // Whether tire pressures can be adjusted WITHOUT changing tires; default=0
 DamagedTiresOnly=0                  // Tire change restrictions: 0=any tire can be changed 1=only damaged tires can be changed; default=0
 CompoundRestrictions=2              // Whether tire compounds have restrictions: 0=unrestricted 1=one dry compound from qualifying on, 2=front/rear compounds must match, 3=both; default=0
-Preparation=(150.0,30.0,0.5,8.5)    // When crew gives up after request, crew prep time, delay multiplier for how much more time was needed to prep, max delay; default=(150.0,25.0,0.5,4.5)
-FuelTime=(7.5,2.0,0.5,0.5,1.0)     // Fuel fill rate (L/s), random delay, nozzle insertion time, nozzle removal time, concurrent fuel filling (0.0=separate, 1.0=concurrent); default=(12.0,2.0,1.0,0.5,1.0)
-TireTime=(3.5,3.5,0.1,1.0)          // Time to change two tires, time to change four tires, random delay on any tire, concurrent tire changes (0.0=separate, 1.0=concurrent); default=(3.5,3.5,2.0,1.0)
+Preparation=(150.0,45.0,0.8,10.5)    // When crew gives up after request, crew prep time, delay multiplier for how much more time was needed to prep, max delay; default=(150.0,25.0,0.5,4.5)
+FuelTime=(4.5,2.0,0.5,0.5,1.0)     // Fuel fill rate (L/s), random delay, nozzle insertion time, nozzle removal time, concurrent fuel filling (0.0=separate, 1.0=concurrent); default=(12.0,2.0,1.0,0.5,1.0)
+TireTime=(4.5,4.5,0.5,1.0)          // Time to change two tires, time to change four tires, random delay on any tire, concurrent tire changes (0.0=separate, 1.0=concurrent); default=(3.5,3.5,2.0,1.0)
 FenderFlareTime=0.0                 // Time to adjust fender flare; default=3.5
-FrontWingTime=(0.75,15.0)            // Time to adjust front wing, time to replace front wing; default=(8.0,8.0)
-RearWingTime=(12.0,30.0)            // Time to adjust rear wing, time to replace rear wing; default=(8.0,33.0)
+FrontWingTime=(0.75,10.0)            // Time to adjust front wing, time to replace front wing; default=(8.0,8.0)
+RearWingTime=(12.0,45.0)            // Time to adjust rear wing, time to replace rear wing; default=(8.0,33.0)
 DriverTime=(20.0,1.5,4.0,1.0)       // Time to change driver, random delay, extra delay if vehicle is damaged, concurrent driver changes (0.0=separate, 1.0=concurrent); default=(11.0,1.5,4.0,1.0)
 WedgeTime=0.0                       // Time to adjust wedge; default=3.5
 RadiatorTime=0.0                    // Time to adjust radiator/grille tape; default=5.0
 TrackBarTime=0.0                    // Time to adjust track bar; default=3.5
 PressureTime=2.5                    // Time to adjust tire pressure WITHOUT changing tire; default=2.5
 SpringRubberTime=3.0                // Time to adjust spring rubber; default=3.0
-DamageTime=(9.5,2.0,10.0,1.0)     // Time to fix aero damage, random delay, fix suspension including broken off wheels, concurrent damage fixing (0.0=separate, 1.0=concurrent); default=(8.5,1.0,90.0,1.0)
+DamageTime=(9.5,2.0,15.0,1.0)     // Time to fix aero damage, random delay, fix suspension including broken off wheels, concurrent damage fixing (0.0=separate, 1.0=concurrent); default=(8.5,1.0,90.0,1.0)
 
 [AIDPENALTIES] 
 TC=(0.00,0.00,0.00)                 // Weight penalties for using different
@@ -160,10 +160,10 @@ RWRot=( 0.20, 0.18, 0.30)       // Aero torque from rotating
 RWCenter=(0.00, 0.62, 0.355)    // Center of rear wing forces (offset from center of rear axle at ref plane)
 
 [BODYAERO]
-BodyDragBase=(0.3630)           // Base drag
-BodyDragHeightAvg=(0.356)       // Drag increase with average ride height
-BodyDragHeightDiff=(0.886)      // Drag increase with front/rear ride height difference
-BodyMaxHeight=(0.22)            // Maximum ride height that affects drag/lift
+BodyDragBase=(0.3430)           // Base drag
+BodyDragHeightAvg=(0.326)       // Drag increase with average ride height
+BodyDragHeightDiff=(0.786)      // Drag increase with front/rear ride height difference
+BodyMaxHeight=(0.15)            // Maximum ride height that affects drag/lift
 DraftBalanceMult=1.00           // Effect of draft on aerodynamic downforce balance of car (bigger numbers exaggerate the effect)
 BodyDraftLiftMult=2.00          // Effect of draft on bodys lift response
 BodyLeft=(-0.70, 0.030, 0.00)   // Aero forces from moving left
@@ -176,12 +176,12 @@ BodyRot=(4.00, 2.70, 1.90)      // Aero torque from rotating
 BodyCenter=(0.0, 0.254,-1.413)  // Center of body aero forces (offset from center of rear axle at ref plane)
 RadiatorRange=(2.0, 0.5, 8.0)     // Radiator range (front grille tape) 
 RadiatorSetting=5               // Radiator setting
-RadiatorDrag=(0.0050)           // Effect of radiator setting on drag 
-RadiatorLift=(0.0015)           // Effect of radiator setting on lift 
+RadiatorDrag=(0.0150)           // Effect of radiator setting on drag 
+RadiatorLift=(0.0025)           // Effect of radiator setting on lift 
 BrakeDuctRange=(0,1,10)    // Brake duct range
 BrakeDuctSetting=4           // Brake duct setting
-BrakeDuctDrag=(0.00315)         // Effect of brake duct setting on drag
-BrakeDuctLift=(0.00686)         // Effect of brake duct setting on lift
+BrakeDuctDrag=(0.00515)         // Effect of brake duct setting on drag
+BrakeDuctLift=(0.00886)         // Effect of brake duct setting on lift
 BaseDropoff=0.12              // RFM Drafting override: Higher number -> more drafting effect (default=0.185)
 LeadingExponent=80.0           // RFM Drafting override: Higher number -> lower effect on leader (default=2.0)
 FollowingExponent=1.75          // RFM Drafting override: Higher number -> lower effect on followers (default=2.0)
